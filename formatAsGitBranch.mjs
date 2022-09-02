@@ -5,7 +5,7 @@ const username = ''
 const token = ''
 const url = ''
 const headers = new Headers ()
-headers.set ('Authorization', `Basic ${btoa (usernameAndToken)}`)
+headers.set ('Authorization', `Basic ${btoa (`${username}:${token}`)}`)
 const response = await fetch (url, {headers})
 
 for await (const l of readLines (readerFromStreamReader (response.body.getReader()))) {
